@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SeleniumDocsNavigationSuite" verbose="1">
+    <listeners>
+        <listener class-name="com.daviddev.automation.listeners.TestListener"/>
+    </listeners>
+    
+    <test name="SeleniumDocsNavigationTest" time-out="600000">
+        <classes>
+            <class name="com.daviddev.automation.tests.SeleniumDocsNavigationTest"/>
+        </classes>
+    </test>
+</suite>

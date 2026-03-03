@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.daviddev.automation'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium WebDriver
+    implementation 'org.seleniumhq.selenium:selenium-java:4.27.0'
+    
+    // TestNG - using implementation since BaseTest and listeners are in main
+    implementation 'org.testng:testng:7.10.2'
+    
+    // Monte Screen Recorder for video capture
+    implementation 'com.github.stephenc.monte:monte-screen-recorder:0.7.7.0'
+    
+    // WebDriverManager for automatic driver management
+    implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+    
+    // Apache Commons IO for file operations
+    implementation 'commons-io:commons-io:2.18.0'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+    // Set system properties for test execution
+    systemProperty 'java.awt.headless', 'false'
+}
+
+// Task to run specific test class
+task runTest(type: Test) {
+    useTestNG() {
+        include '**/SeleniumDocsNavigationTest.class'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}
+
+// Clean task should also clean screenshots and recordings
+clean {
+    delete 'screenshots'
+    delete 'recordings'
+    delete 'test-output'
+}
