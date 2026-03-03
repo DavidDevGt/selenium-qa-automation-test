@@ -1,11 +1,5 @@
 # Selenium QA Automation Test
 
-[![Demo Video](https://img.shields.io/badge/🎥-Ver_Demo_en_YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/gJ5HqvVlH54)
-
-> 🎬 **Video Demo:** [Ver ejecución del test en YouTube](https://youtu.be/gJ5HqvVlH54)
-
----
-
 Proyecto de automatización de pruebas funcionales utilizando Selenium WebDriver con WebDriverManager para navegación automatizada de documentación Selenium.
 
 ## 📋 Descripción
